@@ -1,0 +1,173 @@
+<html>
+<head>
+    <style>
+        .slider-container {
+            width: 500px;
+            box-shadow: 1px 1px 10px grey;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider-inner {
+            display: flex;
+        }
+
+        .slider-card {
+            position: relative;
+            width: 250px;
+            background-color: #95beff;
+            box-shadow: 1px 1px 10px gray;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            left: 0;
+            transition: 0.5s;
+        }
+
+        .slider-card img {
+            width: 250px;
+            height: 150px;
+        }
+        .slider-card-content h3,
+        .slider-card-content p{
+            margin: 0;
+            padding-top: 10px;
+        }
+        .slider-card-content button{
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .slider-card-content button:hover{
+            box-shadow: 1px 1px 10px gray;
+        }
+
+        .slider-buttons {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+        }
+
+        .slider-buttons button {
+            height: 50px;
+            width: 50px;
+            border: none;
+            box-shadow: 1px 1px 10px #000000;
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="slider-container">
+    <div class="slider-inner">
+        <div class="slider-card">
+            <img src="img/01.jpg">
+            <div class="slider-card-content">
+                <h3>Card Heading</h3>
+                <p>This is card slider sample text</p>
+                <button>Show More</button>
+            </div>
+        </div>
+        <div class="slider-card">
+            <img src="img/02.jpg">
+            <div class="slider-card-content">
+                <h3>Card Heading</h3>
+                <p>This is card slider sample text</p>
+                <button>Show More</button>
+            </div>
+        </div>
+        <div class="slider-card">
+            <img src="img/03.jpg">
+            <div class="slider-card-content">
+                <h3>Card Heading</h3>
+                <p>This is card slider sample text</p>
+                <button>Show More</button>
+            </div>
+        </div>
+        <div class="slider-card">
+            <img src="img/01.jpg">
+            <div class="slider-card-content">
+                <h3>Card Heading</h3>
+                <p>This is card slider sample text</p>
+                <button>Show More</button>
+            </div>
+        </div>
+        <div class="slider-card">
+            <img src="img/02.jpg">
+            <div class="slider-card-content">
+                <h3>Card Heading</h3>
+                <p>This is card slider sample text</p>
+                <button>Show More</button>
+            </div>
+        </div>
+        <div class="slider-card">
+            <img src="img/03.jpg">
+            <div class="slider-card-content">
+                <h3>Card Heading</h3>
+                <p>This is card slider sample text</p>
+                <button>Show More</button>
+            </div>
+        </div>
+    </div>
+    <div class="slider-buttons">
+        <button class="prev">Prev</button>
+        <button class="next">Next</button>
+    </div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+
+    $(document).ready(function () {
+
+
+        $(".next").click(function () {
+            var cardwidth = $(".slider-card").width();
+            var sliderCard = $(".slider-card:last-child").offset().left;
+            var sliderEachCard = $(".slider-card");
+
+            if (sliderCard <= 0) {
+                return false;
+            }
+            console.log(sliderCard);
+
+            sliderEachCard.css({"left": '-='+cardwidth});
+
+
+        });
+
+        $(".prev").click(function () {
+            var cardwidth = $(".slider-card").width();
+            var sliderCard = $(".slider-card:first-child").offset().left;
+            var sliderEachCard = $(".slider-card");
+
+            if (sliderCard >= 0) {
+                return false;
+            }
+
+            console.log(sliderCard);
+
+
+            sliderEachCard.css({"left": '+='+cardwidth});
+
+        });
+        
+    });
+
+
+</script>
+</html>
